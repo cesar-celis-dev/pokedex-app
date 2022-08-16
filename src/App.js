@@ -1,5 +1,6 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { Router } from './routes/Router';
+
 
 export const App = () => {
   return (   
