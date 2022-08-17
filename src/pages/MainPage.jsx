@@ -1,40 +1,46 @@
-import React, { useState } from 'react';
-import { fetchPokemons } from '../api/fetchPokemons';
+import React, { useEffect, useState } from 'react';
+import { getPokemons } from '../api/getPokemons';
+import { Link } from 'react-router-dom';
+
 
 export const MainPage = () => {
 
-  const [data, setData] = useState(null);
+  const [pokemons, setPokemons] = useState([]);
 
+  useEffect(() => {
+    const getPokemonData = async () => {
+      const pokemons = await getPokemons();
+      setPokemons(pokemons);
+    }
+      getPokemonData();
+  }, [])
+  
 
-  const getPokemons = async (offset, limit) => {
-    const pokemons = await fetchPokemons(
-      offset,
-      limit
-    );
-    setData(pokemons);
-  };
-console.log(data);
   return (
-    <div>
+    <>
+      
           {
-           data.results.map((item) => {
-            const pokemonArray = item.url.split('/');
-            const pokemonId = pokemonArray[pokemonArray.length - 2];
+            pokemons.results?.map((pokemon, index) => {
+              const pokemonArray = pokemon.url.split('/');
+              const pokemonId = pokemonArray[pokemonArray.length - 2];
 
-            return (
-              <div>
-                  <div>{item.name}</div>
+              return(
+                <div key={index} className="pokeCard">
+                  <div> Name: {pokemon.name} </div>
                   <div>
-                    <img
+                    <img 
                       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-                      alt={item.name}
-                    />
+                      alt={pokemon.name}
+                    /> 
                   </div>
-                  <div>View More</div>
-              </div>
-            ); 
-           })
-          };
-    </div>
+                  <Link to={`/pokemon/${pokemonId}`}>
+                    <button>View More</button>
+                  </Link>
+                </div>
+              )
+          })
+          }
+      
+    </>
   );
 };

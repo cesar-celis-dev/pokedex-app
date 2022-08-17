@@ -1,4 +1,5 @@
-export const fetchPokemons = async (
+
+export const getPokemons = async (
     offset = 0,
     limit = 100
   ) => {
