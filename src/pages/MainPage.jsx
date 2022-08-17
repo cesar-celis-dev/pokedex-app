@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPokemons } from '../api/getPokemons';
 import { Link } from 'react-router-dom';
+import { Search } from '../components/search/Search';
 
 
 export const MainPage = () => {
@@ -18,6 +19,7 @@ export const MainPage = () => {
 
   return (
     <>
+    <Search />
       <div className='cardCol container'>
           {
             data.results?.map((pokemon, index) => {
