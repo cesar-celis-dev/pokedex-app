@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 export const MainPage = () => {
 
-  const [pokemons, setPokemons] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const getPokemonData = async () => {
       const pokemons = await getPokemons();
-      setPokemons(pokemons);
+      setData(pokemons);
     }
       getPokemonData();
   }, [])
@@ -18,20 +18,22 @@ export const MainPage = () => {
 
   return (
     <>
-      
+      <div className='cardCol container'>
           {
-            pokemons.results?.map((pokemon, index) => {
+            data.results?.map((pokemon, index) => {
               const pokemonArray = pokemon.url.split('/');
               const pokemonId = pokemonArray[pokemonArray.length - 2];
 
               return(
                 <div key={index} className="pokeCard">
-                  <div> Name: {pokemon.name} </div>
-                  <div>
-                    <img 
+                  <img
                       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
                       alt={pokemon.name}
                     /> 
+                  <div> Name: {pokemon.name} </div>
+                  <div> Pokemon Number: {index+1} </div>
+                  <div>
+                    
                   </div>
                   <Link to={`/pokemon/${pokemonId}`}>
                     <button>View More</button>
@@ -40,7 +42,7 @@ export const MainPage = () => {
               )
           })
           }
-      
+      </div>
     </>
   );
 };

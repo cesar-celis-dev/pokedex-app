@@ -1,0 +1,10 @@
+.container{
+    padding: 40px;
+}
+.cardCol{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.pokeCard{
+    margin: 30px;
+}
