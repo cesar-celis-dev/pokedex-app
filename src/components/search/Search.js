@@ -1,35 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { getPokemons } from '../../api/getPokemons';
+import React from 'react';
 
 
-export const Search = () => {
 
-    const [searchParams, setSearchParams] = useSearchParams();
+export const Search = ({
+    searchTerm,
+    search,
+    data
+}) => {
 
-    const [data, setData] = useState([]);
-
-    const searchTerm = searchParams.get("name") || "";
-
-    useEffect(() => { 
-          getPokemonData();
-      }, [])
-    
-      const getPokemonData = async () => {
-        const pokemons = await getPokemons();
-        setData(pokemons);
-      }
-
-    const handleSearch = event => {
-        const name = event.target.value;
-
-        if(name){
-            setSearchParams({name});
-        }else{
-            setSearchParams({});
-        }
-    }
-//.filter(pokemon => pokemon.toLowerCase().includes(searchTerm.toLowerCase()))
   return (
     <div>
         <div>
@@ -37,7 +15,7 @@ export const Search = () => {
             <input
                 type="text"
                 value={searchTerm}
-                onChange={handleSearch}
+                onChange={search}
                 placeholder="Search"
             />
         </div>
