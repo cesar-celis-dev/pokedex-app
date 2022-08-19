@@ -5,7 +5,7 @@ import { getPokemonById } from '../api/getPokemonById';
 
 export const PokemonPage = () => {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -23,8 +23,8 @@ export const PokemonPage = () => {
 
 
   return (
-    <div className='container'>
-
+    <div className='detail-container'>
+      <div>
         <div>
           <button
             className='btnback'
@@ -32,22 +32,23 @@ export const PokemonPage = () => {
           > Back</button>
         </div>
 
-        <div>
+        {data &&<div>
             <div>
-              <img 
+              <img
+                className='imgdetail' 
                 src={data.sprites?.other?.dream_world?.front_default}
                 alt={id}
               />
             </div>
-            <div>
-              <div>Pokemon Number: {data.id} </div>
-              <div>Pokemon Name: {data.name} </div>
-              <div>Type: {data.types[0].type.name}</div> 
-              <div>height: {data.height}</div>
-              <div>weight: {data.weight}</div>
+            <div className='descriptionsdetail'>
+              <div className='description'>Pokemon Number: {data.id} </div>
+              <div className='description'>Pokemon Name: {data.name} </div>
+              <div className='description'>Type: {data.types[0].type.name}</div>
+              <div className='description'>height: {data.height}</div>
+              <div className='description'>weight: {data.weight}</div>
             </div>
-        </div>
-
+        </div>}
+      </div>
     </div>
   )
 }

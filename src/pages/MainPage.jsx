@@ -6,7 +6,7 @@ import { Search } from '../components/search/Search';
 
 export const MainPage = () => {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchTerm = searchParams.get("name") || "";
 
@@ -37,7 +37,7 @@ export const MainPage = () => {
     <>
       <Search searchTerm={searchTerm} search={handleSearch} data={data} />
       
-      <div className='cardCol container'>
+      {data && <div className='main-container'>
 
           {renderPokemons && 
             renderPokemons.map((pokemon, index) => {
@@ -64,7 +64,7 @@ export const MainPage = () => {
         )
           })
           }
-      </div>
+      </div>}
     </>
   );
 };
