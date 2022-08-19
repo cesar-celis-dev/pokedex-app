@@ -7,18 +7,21 @@ import { Search } from '../components/search/Search';
 export const MainPage = () => {
 
   const [data, setData] = useState([]);
-
   const [searchParams, setSearchParams] = useSearchParams();
-
   const searchTerm = searchParams.get("name") || "";
 
+  const renderPokemons = searchTerm
+    ? data?.results?.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    : data?.results
+
   useEffect(() => {
-    const getPokemonData = async () => {
-      const pokemons = await getPokemons();
-      setData(pokemons);
-    }
       getPokemonData();
-  }, [])
+  }, []);
+
+  const getPokemonData = async () => {
+    const pokemons = await getPokemons();
+    setData(pokemons);
+  }
   
  const handleSearch = event => {
         const name = event.target.value;
@@ -36,24 +39,27 @@ export const MainPage = () => {
       
       <div className='cardCol container'>
 
-          {
-            data.results?.map((pokemon, index) => {
+          {renderPokemons && 
+            renderPokemons.map((pokemon, index) => {
               const pokemonArray = pokemon.url.split('/');
               const pokemonId = pokemonArray[pokemonArray.length - 2];
         return (
                   <div key={index} className="pokeCard">
                         <img
+                            className='imgcard'
                             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
                             alt={pokemon.name}
-                          /> 
-                        <div> Name: {pokemon.name} </div>
-                        <div> Pokemon Number: {index+1} </div>
-                        <div>
-                          
-                        </div>
-                        <Link to={`/pokemon/${pokemonId}`}>
-                          <button>View More</button>
-                        </Link>
+                          />
+                        <div className='cardDescription'>
+                          <div className='description'> Name: {pokemon.name} </div>
+                          <div className='description'> Pokemon Number: {index+1} </div>
+                          <div>
+                            
+                          </div>
+                          <Link to={`/pokemon/${pokemonId}`}>
+                            <button className='btnview'>View More...</button>
+                          </Link>
+                        </div> 
                   </div>
         )
           })

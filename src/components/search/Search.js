@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 export const Search = ({
     searchTerm,
     search,
@@ -11,8 +9,9 @@ export const Search = ({
   return (
     <div>
         <div>
-            <div>Search</div>
+            <div>Search Pokemon</div>
             <input
+                className='inputsearch'
                 type="text"
                 value={searchTerm}
                 onChange={search}

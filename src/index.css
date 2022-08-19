@@ -7,4 +7,38 @@
 }
 .pokeCard{
     margin: 30px;
+    border: 1px solid;
+    width: 300px;
+    background-color: rgba(255, 0, 0, 0.527);
+    text-align: center;
+    box-shadow: 10px 10px 20px 10px grey;
+}
+.imgcard{
+    width: 150px;
+
+}
+.cardDescription{
+    background-color: white;
+    padding: 20px;
+}
+.description{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.btnview{
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: rgb(79, 91, 255);
+    font-weight: bold;
+}
+button:hover{
+    color: white;
+    background-color: rgb(69, 69, 204);
+}
+.btnback{
+    background-color: rgb(154, 154, 192);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: white;
 }

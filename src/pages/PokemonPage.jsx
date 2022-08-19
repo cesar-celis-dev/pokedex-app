@@ -27,8 +27,9 @@ export const PokemonPage = () => {
 
         <div>
           <button
+            className='btnback'
             onClick={handleReturn}
-          >Back</button>
+          > Back</button>
         </div>
 
         <div>
@@ -41,6 +42,7 @@ export const PokemonPage = () => {
             <div>
               <div>Pokemon Number: {data.id} </div>
               <div>Pokemon Name: {data.name} </div>
+              <div>Type: {data.types[0].type.name}</div> 
               <div>height: {data.height}</div>
               <div>weight: {data.weight}</div>
             </div>
