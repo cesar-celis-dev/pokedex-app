@@ -61,6 +61,20 @@ button:hover{
 .search-container {
     text-align: center;
 }
+.search-container ul {
+    background-color: yellow;
+    position: absolute;
+    left: 10%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    padding: 0.5rem;
+    text-transform: capitalize;
+    line-height: 1.2;
+    text-align: left;
+    font-family: cursive;
+    list-style-type: none;
+}
 
 .inputsearch {
     border-radius: 8px;
