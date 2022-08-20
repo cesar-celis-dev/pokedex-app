@@ -10,15 +10,12 @@ export const Compare = () => {
   const [selectedPokemons, setSelectedPokemons] = useState([]);
   const [selectedData, setSelectedData] = useState([]);
 
-  console.log({selectedData})
+  // console.log({selectedData})
 
   useEffect(() => {
-
     if(selectedPokemons.length){
       setSelectedPokemonsData();
-    }
-    
-    
+    }    
   }, [selectedPokemons])
   
 
@@ -64,7 +61,25 @@ export const Compare = () => {
     <>
       <Search searchTerm={searchTerm} search={handleSearch} data={data} />
       <div className='selected-pokemons'>
-        {selectedData.map((pokemon, i) => <p key={i}>{pokemon.name} / {pokemon.types[0].type.name}</p>)}
+        {
+          selectedData.map((pokemon, i) => 
+            <div key={i} className="datacompare">
+              <div>
+                <img
+                  className='imgcard'
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+                  alt={pokemon.name}
+                />
+              </div>
+              <div> 
+                {pokemon.name} / 
+                {pokemon.types[0].type.name} /
+                w: {pokemon.weight} /
+                h: {pokemon.height}
+              </div>
+            </div>
+
+        )}
       </div>
 
       <div className='checkbox-container'>
@@ -73,7 +88,7 @@ export const Compare = () => {
           const selected = selectedPokemons.includes(pokemon.name) ? 'selected-item' : '';
 
           return <div className='pokemon-checkbox' key={i}>
-            <div className={selected} onClick={() => handlePokemonSelect(pokemon.name)}> {pokemon.name}</div>
+            <div className={selected} onClick={() => handlePokemonSelect(pokemon.name)}>{pokemon.name}</div>
           </div>
         })}
       </div>

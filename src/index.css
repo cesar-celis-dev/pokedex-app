@@ -109,3 +109,29 @@ button:hover{
     background-color: rgb(62, 62, 88);
     height: 50px;
 }
+
+.pokemon-checkbox {
+    display: grid;
+    grid-template-columns: 20px min-content;
+    text-transform: capitalize;
+    align-content: center;
+    column-gap: 0.2rem;
+}
+
+.checkbox-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.selected-item {
+    color: red;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.datacompare{
+    display: grid;
+    grid-template-rows: auto auto;
+}
