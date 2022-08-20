@@ -14,12 +14,13 @@ export const PokemonPage = () => {
  }
 
   useEffect(() => {
-    const getPokemonData = async (id) => {
-      const pokemons = await getPokemonById(id);
-      setData(pokemons);
-    }
       getPokemonData(id);
   }, [])
+
+  const getPokemonData = async (id) => {
+    const pokemons = await getPokemonById(id);
+    setData(pokemons);
+  }
 
 
   return (
