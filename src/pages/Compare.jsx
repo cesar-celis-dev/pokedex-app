@@ -71,11 +71,11 @@ export const Compare = () => {
                   alt={pokemon.name}
                 />
               </div>
-              <div> 
-                {pokemon.name} / 
-                {pokemon.types[0].type.name} /
-                w: {pokemon.weight} /
-                h: {pokemon.height}
+              <div className='descriptioncompare'> 
+                Name: {pokemon.name} <br/> 
+                Type: {pokemon.types[0].type.name} <br/>
+                weigth: {pokemon.weight} <br/>
+                heigth: {pokemon.height}
               </div>
             </div>
 
