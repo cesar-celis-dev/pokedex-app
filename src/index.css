@@ -115,6 +115,7 @@ button:hover{
     text-transform: capitalize;
     align-content: center;
     column-gap: 0.2rem;
+    cursor:pointer;
 }
 
 .checkbox-container {
@@ -153,8 +154,14 @@ button:hover{
     border-radius: 100%;
     font-size: 20px;
     font-weight: bold;
+    cursor:pointer;
 }
 .divbtndelete{
     text-align: end;
     align-items: center;
+}
+
+.type-mached{
+    font-weight: 600;
+    color: red;
 }

@@ -10,6 +10,10 @@ export const Compare = () => {
   const [selectedPokemons, setSelectedPokemons] = useState([]);
   const [selectedData, setSelectedData] = useState([]);
 
+  console.log({
+    selectedPokemons,
+  selectedData  })
+
   // console.log({selectedData})
 
   useEffect(() => {
@@ -39,8 +43,8 @@ export const Compare = () => {
   }
   
   const handleDelete = (id) => {
-      const newData = selectedData.filter((e) => e.id !== id);
-      const newState = selectedPokemons.filter( item => item.id === id );
+      const newData = selectedData.filter((e) => id !== e.name);
+      const newState = selectedPokemons.filter( item => item !== id );
       setSelectedPokemons(newState);
       setSelectedData(newData);
   }
@@ -69,12 +73,16 @@ export const Compare = () => {
       <Search searchTerm={searchTerm} search={handleSearch} data={data} />
       <div className='selected-pokemons'>
         {
-          selectedData.map((pokemon, i) => 
-            <div key={i} className="datacompare">
+          selectedData.map((pokemon, i) => {
+
+              const typeList = selectedData?.map(data => data?.types[0]?.type?.name);
+              const anyMatch = typeList?.some((type)=> type === pokemon?.types[0]?.type?.name ) ? 'type-mached' : '';
+
+            return <div key={i} className="datacompare">
               <div className='divbtndelete'> 
                 <button
                   className='btndelete'
-                  onClick={() => handleDelete(pokemon.id)}
+                  onClick={() => handleDelete(pokemon.name)}
                 >X</button> 
               </div>
               <div>
@@ -86,11 +94,11 @@ export const Compare = () => {
               </div>
               <div className='descriptioncompare'> 
                 Name: {pokemon.name} <br/> 
-                Type: {pokemon.types[0].type.name} <br/>
+                Type: <div className={anyMatch}>{pokemon.types[0].type.name}</div> <br/>
                 weigth: {pokemon.weight} <br/>
                 heigth: {pokemon.height}
               </div>
-            </div>
+            </div>}
 
         )}
       </div>
