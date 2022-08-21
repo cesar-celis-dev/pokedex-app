@@ -135,15 +135,26 @@ button:hover{
     grid-template-rows: auto auto;
     padding: 20px;
     background-color: yellow;
-    border-radius: 2rem; 
+    border-radius: 2rem;
+    margin-right: 30px; 
 }
 .selected-pokemons{
     display: grid;
-    grid-template-columns: 200px 200px 200px;
-    justify-content: space-around;
+    grid-template-columns: auto auto auto;
     padding: 20px;
+    justify-content: center;
 }
 .descriptioncompare{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
+}
+.btndelete{
+    background: none;
+    border-radius: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.divbtndelete{
+    text-align: end;
+    align-items: center;
 }

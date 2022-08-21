@@ -38,6 +38,13 @@ export const Compare = () => {
       setSelectedData(newDataState);
   }
   
+  const handleDelete = (id) => {
+      const newData = selectedData.filter((e) => e.id !== id);
+      const newState = selectedPokemons.filter( item => item.id === id );
+      setSelectedPokemons(newState);
+      setSelectedData(newData);
+  }
+
   const handlePokemonSelect = (id) => {
     
     if(selectedPokemons && selectedPokemons.length >= 3 && !selectedPokemons.includes(id)){
@@ -64,6 +71,12 @@ export const Compare = () => {
         {
           selectedData.map((pokemon, i) => 
             <div key={i} className="datacompare">
+              <div className='divbtndelete'> 
+                <button
+                  className='btndelete'
+                  onClick={() => handleDelete(pokemon.id)}
+                >X</button> 
+              </div>
               <div>
                 <img
                   className='imgcard'
