@@ -14,7 +14,6 @@ export const Compare = () => {
     selectedPokemons,
   selectedData  })
 
-  // console.log({selectedData})
 
   useEffect(() => {
     if(selectedPokemons.length){
@@ -75,7 +74,12 @@ export const Compare = () => {
         {
           selectedData.map((pokemon, i) => {
 
-              const typeList = selectedData?.map(data => data?.types[0]?.type?.name);
+              const typeList = selectedData?.map(data => {
+                if(data.name !== pokemon.name){
+                  return data?.types[0]?.type?.name                  
+                }
+              } );
+            
               const anyMatch = typeList?.some((type)=> type === pokemon?.types[0]?.type?.name ) ? 'type-mached' : '';
 
             return <div key={i} className="datacompare">
@@ -94,7 +98,7 @@ export const Compare = () => {
               </div>
               <div className='descriptioncompare'> 
                 Name: {pokemon.name} <br/> 
-                Type: <div className={anyMatch}>{pokemon.types[0].type.name}</div> <br/>
+                <div className={anyMatch}>Type: {pokemon.types[0].type.name}</div>
                 weigth: {pokemon.weight} <br/>
                 heigth: {pokemon.height}
               </div>
