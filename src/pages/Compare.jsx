@@ -10,11 +10,6 @@ export const Compare = () => {
   const [selectedPokemons, setSelectedPokemons] = useState([]);
   const [selectedData, setSelectedData] = useState([]);
 
-  console.log({
-    selectedPokemons,
-  selectedData  })
-
-
   useEffect(() => {
     if(selectedPokemons.length){
       setSelectedPokemonsData();

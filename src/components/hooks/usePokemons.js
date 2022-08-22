@@ -8,8 +8,11 @@ export const usePokemons = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchTerm = searchParams.get("name") || "";
 
+  console.log(data)
+
   const renderPokemons = searchTerm
     ? data?.results?.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .concat(data?.results?.filter((pokemon, index) => `${index+1}`.includes(searchTerm.toLowerCase())))
     : data?.results
 
   useEffect(() => {
