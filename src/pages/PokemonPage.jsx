@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getPokemonById } from '../api/getPokemonById';
+import { Carrousel } from '../components/carrousel/Carrousel';
 
 
 export const PokemonPage = () => {
@@ -24,6 +25,7 @@ export const PokemonPage = () => {
 
 
   return (
+    <>
     <div className='detail-container'>
       <div>
         <div>
@@ -49,7 +51,12 @@ export const PokemonPage = () => {
               <div className='description'>weight: {data.weight}</div>
             </div>
         </div>}
-      </div>
+      </div>    
     </div>
+    <div className='carrousel'>
+      <Carrousel />
+    </div>
+    </>
+    
   )
 }

@@ -11,7 +11,7 @@ export const MainPage = () => {
     data,
     searchTerm,
     renderPokemons,
-    handleSearch
+    handleSearch 
   } = usePokemons();
 
 

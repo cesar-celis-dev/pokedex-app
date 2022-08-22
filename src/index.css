@@ -44,19 +44,18 @@ button:hover{
     font-size: 20px;
 }
 .imgdetail{
-    max-width: 300px;
+    max-width: 250px;
     padding: 30px;
 }
 .detail-container{
     padding: 40px;
     background-color: yellow;
-    aspect-ratio: 5/7;
     width: min-content;
     border: 2px solid black;
     border-radius: 2rem;
     font-size: 1.3rem;
     font-family: cursive;
-    line-height: 1.7;
+    line-height: 1;
     margin: auto;
 }
 
@@ -168,4 +167,27 @@ button:hover{
 .type-mached{
     font-weight: 600;
     color: red;
+}
+.carrousel{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.container{
+    padding: 30px;
+    text-align: center;
+}
+
+.carrouselinfo{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.btncarrouselbefore{
+    align-self: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.btncarrouselnext{
+    align-self: center;
+    border-bottom-left-radius: 30px;
 }
