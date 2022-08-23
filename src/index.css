@@ -20,7 +20,7 @@
     padding: 20px;
 }
 .description{
-    font-size: 20px;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .btnview{
@@ -41,14 +41,14 @@ button:hover{
     border-bottom-left-radius: 20px;
     color: white;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
 }
 .imgdetail{
-    max-width: 250px;
+    max-width: 180px;
     padding: 30px;
 }
 .detail-container{
-    padding: 40px;
+    padding: 20px;
     background-color: yellow;
     width: min-content;
     border: 2px solid black;
@@ -57,6 +57,7 @@ button:hover{
     font-family: cursive;
     line-height: 1;
     margin: auto;
+    max-height: 350px;
 }
 
 .search-container {
@@ -168,13 +169,13 @@ button:hover{
     font-weight: 600;
     color: red;
 }
-.carrousel{
+.carrousell{
     display: grid;
     grid-template-columns: auto auto auto;
+    max-height: 230px;
 }
 .container{
     padding: 30px;
-    text-align: center;
 }
 
 .carrouselinfo{
@@ -183,11 +184,16 @@ button:hover{
 }
 
 .btncarrouselbefore{
-    align-self: center;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    width: 60px;
 }
 .btncarrouselnext{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 60px;
+}
+.btncarrousel{
     align-self: center;
-    border-bottom-left-radius: 30px;
+    justify-self: center;
 }

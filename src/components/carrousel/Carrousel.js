@@ -30,11 +30,12 @@ export const Carrousel = () => {
     }
 
   return (
-    <div className='container'>
-        <div className='carrousel'>
-            <div className='btncarrouselbefore'>
+    <div>
+        <div className='carrousell'>
+            <div className='btncarrousel'>
                 {offset >= 5 ? 
                     <button
+                        className='btncarrouselbefore'
                         onClick={handleBefore}
                     >
                         Before
@@ -59,9 +60,10 @@ export const Carrousel = () => {
                 ))
                 }
             </div>
-            <div className='btncarrouselnext'>
+            <div className='btncarrousel'>
                 {offset< 16 ?                    
                     <button
+                        className='btncarrouselnext'
                         onClick={handleNext}
                     >
                         Next
